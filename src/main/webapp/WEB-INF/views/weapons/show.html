@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weapon</title>
+</head>
+<body>
+<p th:text="${weapon.getName()}">VALUE</p>
+<p th:text="${weapon.getType()}">VALUE</p>
+<p th:text="${weapon.getStorage()}">VALUE</p>
+<a th:href="@{/weapons/{id}/edit(id=${weapon.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/weapons/{id}(id=${weapon.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+</body>
+</html>

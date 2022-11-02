@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/weapons/{id}(id=${weapon.getId()})}" th:object="${weapon}">
+  <label for="name">Enter name: </label>
+  <input id="name" type="text" th:field="*{name}"/>
+  <br/>
+  <label for="storage">Enter storage: </label>
+  <input id="storage" type="text" th:field="*{storage}"/>
+  <br/>
+    <label for="type">Enter type: </label>
+    <select id="type" name="type">
+        <option th:each="state : ${T(ru.kharina.study.mvchome.models.WeaponType).values()}"
+                th:value="${state}" th:text="${state.displayValue}"></option>
+    </select>
+
+    <br/>
+  <!--label for="type">Enter type: </label>
+  <input id="type" type="text" th:field="*{type}"/>
+  <br/-->
+  <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
